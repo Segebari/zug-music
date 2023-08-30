@@ -458,7 +458,6 @@ nav img {
         position: relative;
         overflow: hidden;
          /* Additional styling for the content within the container */
-         display: inline-block; /* Display content in a row *//* Add any other styling you need */
     }
 
     /* .charts-container  {
