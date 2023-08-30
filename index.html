@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <title>zug music</title>
 </head>
 <body>
@@ -19,32 +20,36 @@
             <img src="assets/img/search.svg" alt="search-icon" width="16px" height="16px" class="search-icon">
             <input type="text" placeholder="Search" class="search-text">
         </div>
+        <div class="menu-icon" id="menu-btn">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </div>
     </header>
 
     <!-- Nav -->
 
-    <nav>
-        <ul>
-            <li> <img src="assets/img/home-icon.svg" alt=""> </li>
+    <nav id="nav" class="navhidden">
+        <ul class="nav-top">
+            <li class="flex"> <img src="assets/img/home-icon.svg" alt=""> <span class="menu-text"> Home </span>  </li>
 
-            <li> <img src="assets/img/playlist.svg" alt=""> </li>
+            <li class="flex"> <img src="assets/img/playlist.svg" alt=""> <span class="menu-text"> Home </span> </li>
 
-            <li> <img src="assets/img/radio.svg" alt=""> </li>
+            <li class="flex"> <img src="assets/img/radio.svg" alt=""> <span class="menu-text"> Home </span> </li>
 
-            <li> <img src="assets/img/videos.svg" alt="" 
-                class="last-img"> </li>
+            <li class="flex"> <img src="assets/img/videos.svg" alt="" 
+                class="last-img">  <span class="menu-text"> Home </span> </li>
 
         </ul>
-    </nav>
 
-    <nav class="nav nav-profile">
-        <ul>
-            <li> <img src="assets/img/profile.svg" alt=""> </li>
+        <ul class="nav-profile">
+            <li class="flex"> <img src="assets/img/profile.svg" alt=""> <span class="menu-text"> Home </span> </li>
 
-            <li> <img src="assets/img/Logout.svg" alt="" 
-                class="last-img"> </li>
+            <li class="flex"> <img src="assets/img/Logout.svg" alt="" 
+                class="last-img"> <span class="menu-text"> Home </span> </li>
         </ul>
+
     </nav>
+
 
 
     <div class="container-home flex">
@@ -359,7 +364,34 @@
                         James
                     </p>
                 </div>
+            
             </div>
+
+            <div class="player-btns-wrap">
+                <div class="player-btns flex">
+
+
+                <i class="uil uil-arrow-random player-icon"></i>
+                <i class="uil uil-step-backward player-icon"></i>
+                <i class="uil uil-play"></i>
+                <i class="uil uil-skip-forward player-icon"></i>
+                <i class="uil uil-repeat"></i>
+
+                </div>
+                
+
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+
+            <div class="volume flex">
+                <i class="uil uil-volume"></i>
+                <div class="volume-progress-bar">
+                    <div class="volume-progress"></div>
+                </div>
+            </div>
+            
             
         </div>
 
