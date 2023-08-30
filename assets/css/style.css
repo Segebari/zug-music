@@ -168,6 +168,11 @@ header {
 
 
 @media (max-width: 768px) {
+
+    header {
+        padding: 1rem 2.5rem;
+    }
+
     .search-tab {
         display: none;
     }
@@ -367,6 +372,18 @@ nav img {
     position: relative;
     left: -3rem;
     gap: .4rem;
+}
+
+@media (max-width: 768px) {
+   .container-home {
+    flex-direction: column;
+    margin: 0;
+   }
+
+   .curated-playlist {
+    width: 90vw;
+    border-radius: 1.5rem;
+   }
 }
 
 
