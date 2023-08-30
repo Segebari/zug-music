@@ -411,14 +411,28 @@ nav img {
     position: fixed;
     height: 5rem;
     width: 100vw;
-    background-color: #1d21236b; /* Adjust the color and opacity */
-    backdrop-filter: blur(10px); /* Adjust the blur radius */
+    background: rgba(29, 33, 35, 0.30);
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff1a;
     bottom: 0;
+    padding: 1rem 5rem;
 }
+
+
 
 
 .player-img {
     width: 3rem;
     height: 3rem;
+    margin-right: .5rem;
 }
 
+
+.psong-name {
+    font-size: small;
+}
+
+.partist {
+    font-size: x-small;
+    color: rgba(255, 255, 255, 0.44);
+}
