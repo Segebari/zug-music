@@ -51,3 +51,37 @@ const navMenu = document.getElementById('nav');
 menuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('navhidden');
   });
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const chartsContainer = document.getElementById('chartsContainer');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    chartsContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - chartsContainer.offsetLeft;
+        scrollLeft = chartsContainer.scrollLeft;
+    });
+
+    chartsContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    chartsContainer.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    chartsContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - chartsContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust scroll speed here
+        chartsContainer.scrollLeft = scrollLeft - walk;
+    });
+});
+

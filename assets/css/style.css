@@ -85,7 +85,7 @@
     font-size: var(--normal-font-size);
     background-color: var(--dark-color);
     color: var(--white-color);
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4 {
@@ -265,6 +265,10 @@ nav img {
     margin-bottom: 0;
 }
 
+.menu-text {
+    display: none;
+}
+
 
 @media (max-width: 768px) {
     nav {
@@ -283,6 +287,7 @@ nav img {
     }
 
     .menu-text {
+        display: block;
         padding-left: 1rem;
     }
 
@@ -442,6 +447,44 @@ nav img {
 .song-length {
     font-size: x-small;
 }
+
+
+@media (max-width: 768px) {
+
+    .top-charts {
+        height: auto;
+        width: 100%;
+        margin-left: 5rem;
+        position: relative;
+        overflow: hidden;
+         /* Additional styling for the content within the container */
+         display: inline-block; /* Display content in a row *//* Add any other styling you need */
+    }
+
+    /* .charts-container  {
+        
+    } */
+
+    .charts-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        overflow-x: scroll;
+        overflow: hidden;
+        white-space: nowrap; /* Prevent text from wrapping */
+        padding-right: 2rem;
+    }
+
+   
+    .charts-wrap {
+        width: 20.1875rem;
+        height: 14.5625rem;
+        margin-right: 1rem;
+    }
+ }
+
+
+
 
 
 /* New releases */
