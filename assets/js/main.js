@@ -1,4 +1,6 @@
-const songsContainer = document.querySelector('.new-release');
+// New Releases section
+const songsContainer = document.querySelector('.songs-container');
+
 let isDragging = false;
 let startPosition = 0;
 let scrollLeft = 0;
@@ -43,6 +45,64 @@ songsContainer.addEventListener('touchmove', (e) => {
     songsContainer.scrollLeft = scrollLeft - deltaX;
 });
 
+// Popular in Your Area section
+const songsContainers = document.querySelector('.songs-containers');
+
+let isDraggings = false;
+let startPositions = 0;
+let scrollLefts = 0;
+
+songsContainers.addEventListener('mousedown', (e) => {
+    isDraggings = true;
+    startPositions = e.clientX;
+    scrollLefts = songsContainers.scrollLeft;
+
+    songsContainers.style.cursor = 'grabbing';
+});
+
+songsContainers.addEventListener('mouseup', () => {
+    if (isDraggings) {
+        isDraggings = false;
+        songsContainers.style.cursor = 'grab';
+    }
+});
+
+songsContainers.addEventListener('mouseleave', () => {
+    if (isDraggings) {
+        isDraggings = false;
+        songsContainers.style.cursor = 'grab';
+    }
+});
+
+songsContainers.addEventListener('mousemove', (e) => {
+    if (!isDraggings) return;
+    const deltaX = e.clientX - startPositions;
+    songsContainers.scrollLeft = scrollLefts - deltaX;
+});
+
+songsContainers.addEventListener('touchstart', (e) => {
+    isDraggings = true;
+    startPositions = e.touches[0].clientX;
+    scrollLefts = songsContainers.scrollLeft;
+});
+
+songsContainers.addEventListener('touchend', () => {
+    if (isDraggings) {
+        isDraggings = false;
+    }
+});
+
+songsContainers.addEventListener('touchmove', (e) => {
+    if (!isDraggings) return;
+    const deltaX = e.touches[0].clientX - startPositions;
+    songsContainers.scrollLeft = scrollLefts - deltaX;
+});
+
+
+
+
+
+// Menu bar
 
 const menuBtn = document.getElementById('menu-btn');
 const navMenu = document.getElementById('nav');
@@ -51,37 +111,4 @@ const navMenu = document.getElementById('nav');
 menuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('navhidden');
   });
-
-
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const chartsContainer = document.getElementById('chartsContainer');
-
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    chartsContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - chartsContainer.offsetLeft;
-        scrollLeft = chartsContainer.scrollLeft;
-    });
-
-    chartsContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    chartsContainer.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    chartsContainer.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - chartsContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Adjust scroll speed here
-        chartsContainer.scrollLeft = scrollLeft - walk;
-    });
-});
-
+  

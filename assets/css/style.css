@@ -552,16 +552,14 @@ nav img {
 
 /* New releases */
 
-.new-release {
-    overflow: hidden;
-    white-space: nowrap;
-}
+
 
 .container-home h2 {
     margin-bottom: 1rem;
 }
 
 .pb {
+    margin-top: 1rem;
     padding-bottom: 6rem;
 }
 
@@ -576,6 +574,18 @@ nav img {
     .new-release {
         padding-left: 1.5rem;
     }
+}
+
+.songs-container {
+    /* cursor: grab; */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.songs-containers {
+    /* cursor: grab; */
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
