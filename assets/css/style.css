@@ -542,9 +542,20 @@ nav img {
     margin-bottom: 1rem;
 }
 
+.pb {
+    padding-bottom: 6rem;
+}
+
 @media (max-width: 768px) {
     .pb {
         padding-bottom: 8rem;
+    }
+}
+
+@media (max-width: 1068px) {
+
+    .new-release {
+        padding-left: 1.5rem;
     }
 }
 
