@@ -305,15 +305,26 @@ nav img {
 
     .nav-top {
         padding: 0;
+        width: auto;
+        place-items: flex-start;
     }
 
     .nav-profile {
         margin: 0rem 0 0 1rem;
         padding: 0;
+        width: auto;
+        place-items: flex-start;
     }
 
     nav li {
         margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 780px) {
+    nav {
+        padding-left: 2rem;
+        padding-top: 1rem;
     }
 }
 
