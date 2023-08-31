@@ -167,7 +167,7 @@ header {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
 
     header {
         padding: 1rem 2.5rem;
@@ -217,7 +217,7 @@ header {
     z-index: 10;
 }
 
-@media (min-width: 768.2px) {
+@media (min-width: 1068px) {
     .menu-icon {
         display: none;
     }
@@ -270,7 +270,7 @@ nav img {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
     nav {
         height: 100vh;
         position: absolute;
@@ -339,6 +339,7 @@ nav img {
 
 .curated-playlist .text {
     font-size: var(--small-font-size);
+    letter-spacing: 0.05rem;
     font-weight: 300;
     margin-bottom: var(--mb-2);
 }
@@ -379,7 +380,7 @@ nav img {
     gap: .4rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
    .container-home {
     flex-direction: column;
     margin: 0;
@@ -390,6 +391,36 @@ nav img {
     border-radius: 1.5rem;
    }
 }
+
+@media (max-width: 1068px) {
+    .img-home  {
+        display: none;
+    }
+ }
+
+
+
+ @media (max-width: 670px) {
+    .curated-playlist {
+        position: relative;
+        background-image: none;
+        padding: 2rem;
+    }
+
+    .curated-playlist .text {
+        font-size: var(--small-font-size);
+        letter-spacing: 0.1rem;
+    }
+
+    .curated-playlist .sub-title {
+        margin-bottom: 8rem;
+    }
+
+    
+    
+ }
+
+ 
 
 
 /* Top Charts */
@@ -449,16 +480,18 @@ nav img {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
 
     .top-charts {
         height: auto;
         width: 100%;
-        padding: 1rem;
+        padding: 2rem;
         /* position: relative;
         overflow: hidden; */
          /* Additional styling for the content within the container
-    }
+    */ } 
+
+
 
     /* .charts-container  {
         
