@@ -167,6 +167,12 @@ header {
 }
 
 
+@media (max-width: 768px) {
+    .logo {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 1068px) {
 
     header {
@@ -175,6 +181,12 @@ header {
 
     .search-tab {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 1.5rem;
     }
 }
 
