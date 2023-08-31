@@ -503,6 +503,26 @@ nav img {
          /* Additional styling for the content within the container
     */ } 
 
+}
+
+@media (max-width: 1068px) and (min-width: 480px) {
+
+    .song-info {
+        font-size: var(--font-medium);
+    }
+
+    .singer {
+        font-size: var(--smaller-font-size);
+    }
+
+    .song-length {
+        font-size: var(--smaller-font-size);
+    }
+
+}
+
+
+
 
 
     /* .charts-container  {
@@ -525,7 +545,6 @@ nav img {
         height: 14.5625rem;
         margin-right: 1rem;
     } */
- }
 
 
 
