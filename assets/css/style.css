@@ -454,32 +454,32 @@ nav img {
     .top-charts {
         height: auto;
         width: 100%;
-        margin-left: 5rem;
-        position: relative;
-        overflow: hidden;
-         /* Additional styling for the content within the container */
+        padding: 1rem;
+        /* position: relative;
+        overflow: hidden; */
+         /* Additional styling for the content within the container
     }
 
     /* .charts-container  {
         
     } */
 
-    .charts-container {
+    /* .charts-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         width: 100%;
         overflow-x: scroll;
         overflow: hidden;
         white-space: nowrap; /* Prevent text from wrapping */
-        padding-right: 2rem;
-    }
+        /* padding-right: 2rem;
+    } */ 
 
    
-    .charts-wrap {
+    /* .charts-wrap {
         width: 20.1875rem;
         height: 14.5625rem;
         margin-right: 1rem;
-    }
+    } */
  }
 
 
