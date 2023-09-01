@@ -1,5 +1,3 @@
-I apologize for missing that important feature. Here's an updated README for Zug Music that includes the ability to upload songs and sync lyrics:
-
 # Zug Music
 
 Welcome to Zug Music, a simple and elegant music-sharing website created using vanilla JavaScript. With Zug Music, you have the freedom to enjoy music the way you want, without any hassle.
