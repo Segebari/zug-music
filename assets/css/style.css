@@ -666,6 +666,20 @@ nav img {
 }
 
 
+@media (max-width: 1068px) {
+    .music-player {
+        padding: 1rem 2rem;
+    }
+
+}
+
+@media (max-width: 780px) {
+    .music-player {
+        padding: 1rem 1rem;
+    }
+}
+
+
 
 
 .player-img {
@@ -692,6 +706,12 @@ nav img {
     justify-content: center;
     padding-bottom: 1rem;
     width: 50vw;
+}
+
+@media (max-width: 780px) {
+    .player-btns {
+        width: 30vw;
+    }
 }
 
 .player-btns i {
@@ -723,8 +743,49 @@ nav img {
     background: rgba(255, 255, 255, 0.04);
 }
 
+
+@media (max-width: 780px) {
+    .volume-progress-bar {
+        width: 15vw;
+    }
+}
+
 .volume-progress {
     height: 100%;
     width: 70%; /* Set initial volume */
     background-color: var(--secondary-color);
+}
+
+
+@media (max-width: 568px) {
+    .progress-bar {
+        display: none;
+    }
+
+
+    .player-btns {
+        justify-content: flex-end;
+        padding-bottom: 0;
+    }
+
+    .player-btns .player-icon {
+        font-size: x-large;
+    }
+
+    .player-btns .player-icon:nth-child(1) {
+        display: none;
+    }
+
+    .player-btns .player-icon:nth-child(2) {
+        display: none;
+    }
+
+    .player-btns .player-icon:nth-child(5) {
+        display: none;
+    }
+
+    
+    .volume {
+        display: none;
+    }
 }
