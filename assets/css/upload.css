@@ -33,3 +33,17 @@
     border-radius: .5rem;
     background-color: var(--secondary-color);
 }
+
+.file-label {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+  }
+  
+  .file-input {
+    display: none; /* Hide the actual file input */
+  }
