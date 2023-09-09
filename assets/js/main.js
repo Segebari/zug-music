@@ -110,5 +110,20 @@ const navMenu = document.getElementById('nav');
 
 menuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('navhidden');
-  });
+});
+
+
+// Music Player
+
+
+
+const songs = [
+    {
+      name: 'Lonely at the top',
+      artist: 'Asake',
+      audio: 'assets/audio/lonely-at-the-top.mp3', // path to audio file
+      image: 'assets/img/work-of-art.svg', // path to image file
+    },
+    // Add more songs as needed
+];
   
