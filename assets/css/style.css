@@ -730,9 +730,10 @@ nav img {
 
 .progress {
     height: 4px;
-    width: 40%;
+    width: 100%;
     border-radius: 3.125rem;
     background: var(--secondary-color);
+    z-index: 2;
 }
 
 .volume {
@@ -740,7 +741,7 @@ nav img {
 }
 
 .volume-progress-bar {
-    width: 150px;
+    width: 15vw;
     height: 4px;
     background: rgba(255, 255, 255, 0.04);
 }
@@ -754,7 +755,7 @@ nav img {
 
 .volume-progress {
     height: 100%;
-    width: 70%; /* Set initial volume */
+    width: 100%; /* Set initial volume */
     background-color: var(--secondary-color);
 }
 

@@ -116,6 +116,7 @@ menuBtn.addEventListener('click', () => {
 // Music Player
 
 
+
 // Get DOM elements
 const audio = document.querySelector('.audio');
 const playerImg = document.querySelector('.player-img');
@@ -141,27 +142,26 @@ let artistIndex = 0;
 
 // Initialize the audio player
 let isPlaying = false;
+let isSeeking = false;
+let isShuffling = false;
+let repeatMode = 'none';
 
 // Function to load a song and update UI
 function loadSong(index) {
-    // Check if the index is within bounds
     if (index < 0) {
         index = songs.length - 1;
     } else if (index >= songs.length) {
         index = 0;
     }
 
-    // Set the audio source and update UI
     audio.src = `assets/audio/${songs[index]}.mp3`;
     playerImg.src = `assets/img/${songs[index]}.svg`;
     psongName.innerText = songs[index];
     partist.innerText = artists[index];
 
-    // Update the current indexes
     songIndex = index;
     artistIndex = index;
 
-    // Play the audio if it was already playing
     if (isPlaying) {
         audio.play();
     }
@@ -175,11 +175,11 @@ playButton.addEventListener('click', () => {
     if (!isPlaying) {
         audio.play();
         isPlaying = true;
-        playButton.className = 'uil uil-pause'; // Update the button class to show the pause icon
+        playButton.className = 'uil uil-pause';
     } else {
         audio.pause();
         isPlaying = false;
-        playButton.className = 'uil uil-play'; // Update the button class to show the play icon
+        playButton.className = 'uil uil-play';
     }
 });
 
@@ -194,19 +194,32 @@ backButton.addEventListener('click', () => {
 });
 
 // Event listener for the progress bar (seeking behavior)
-progressBar.addEventListener('click', (e) => {
+progressBar.addEventListener('mousedown', (e) => {
+    isSeeking = true;
+    seek(e);
+});
+
+// Event listener to handle mousemove while seeking
+document.addEventListener('mousemove', (e) => {
+    if (isSeeking) {
+        seek(e);
+    }
+});
+
+// Event listener to stop seeking when mouseup
+document.addEventListener('mouseup', () => {
+    if (isSeeking) {
+        isSeeking = false;
+        audio.play(); // Resume playback when seeking is done
+    }
+});
+
+function seek(e) {
     const clickedTime = (e.offsetX / progressBar.clientWidth) * audio.duration;
     audio.currentTime = clickedTime;
-});
+}
 
-// Update progress bar as the audio plays
-audio.addEventListener('timeupdate', () => {
-    const { currentTime, duration } = audio;
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-});
-
-// Event listener for the volume icon (you can implement volume control)
+// Event listener for the volume icon (volume control)
 volumeIcon.addEventListener('click', () => {
     if (audio.muted) {
         audio.muted = false;
@@ -216,3 +229,88 @@ volumeIcon.addEventListener('click', () => {
         volumeIcon.className = 'uil uil-volume-mute';
     }
 });
+
+// Event listener for the volume progress bar (volume control)
+volumeProgressBar.addEventListener('click', (e) => {
+    const volume = e.offsetX / volumeProgressBar.clientWidth;
+    audio.volume = volume;
+    volumeProgressBar.style.width = `${volume * 100}%`;
+});
+
+// Update progress bar as the audio plays
+audio.addEventListener('timeupdate', () => {
+    const { currentTime, duration } = audio;
+    const progressPercent = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+});
+
+// Update volume progress bar
+audio.addEventListener('volumechange', () => {
+    const volume = audio.volume;
+    volumeProgressBar.style.width = `${volume * 100}%`;
+});
+
+// Function to shuffle the playlist
+function shufflePlaylist() {
+    for (let i = songs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [songs[i], songs[j]] = [songs[j], songs[i]];
+        [artists[i], artists[j]] = [artists[j], artists[i]];
+    }
+}
+
+// Event listener for the shuffle button
+randomButton.addEventListener('click', () => {
+    isShuffling = !isShuffling;
+    if (isShuffling) {
+        shufflePlaylist();
+        randomButton.className = 'uil uil-random-on';
+        randomButton.style.color = 'var(--secondary-color)'; // Change color to secondary color
+    } else {
+        randomButton.className = 'uil uil-random';
+        randomButton.style.color = ''; // Reset color
+    }
+    loadSong(songIndex);
+});
+
+// Event listener for the repeat button
+repeatButton.addEventListener('click', () => {
+    switch (repeatMode) {
+        case 'none':
+            repeatMode = 'single';
+            repeatButton.className = 'uil uil-repeat-one';
+            repeatButton.style.color = 'var(--secondary-color)'; // Change color to secondary color
+            break;
+        case 'single':
+            repeatMode = 'all';
+            repeatButton.className = 'uil uil-repeat';
+            repeatButton.style.color = 'var(--secondary-color)'; // Change color to secondary color
+            break;
+        case 'all':
+            repeatMode = 'none';
+            repeatButton.className = 'uil uil-repeat';
+            repeatButton.style.color = ''; // Reset color
+            break;
+    }
+});
+
+// Function to handle end of song and decide next song
+function handleEndOfSong() {
+    if (repeatMode === 'single') {
+        loadSong(songIndex);
+    } else if (isShuffling) {
+        const newIndex = Math.floor(Math.random() * songs.length);
+        loadSong(newIndex);
+    } else if (repeatMode === 'all') {
+        loadSong(songIndex + 1);
+    } else {
+        audio.pause();
+        isPlaying = false;
+        playButton.className = 'uil uil-play';
+    }
+}
+
+audio.addEventListener('ended', () => {
+    handleEndOfSong();
+});
+
